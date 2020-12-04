@@ -423,7 +423,10 @@ if ( ! function_exists('form_dropdown'))
 
 				foreach ($val as $optgroup_key => $optgroup_val)
 				{
-					$sel = in_array($optgroup_key, $selected) ? ' selected="selected"' : '';
+					if($key!='')
+						$sel = (in_array($key, $selected)) ? ' selected="selected"' : '';
+					else
+						$sel = '';
 					$form .= '<option value="'.html_escape($optgroup_key).'"'.$sel.'>'
 						.(string) $optgroup_val."</option>\n";
 				}

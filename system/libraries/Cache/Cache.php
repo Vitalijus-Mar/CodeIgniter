@@ -136,6 +136,8 @@ class CI_Cache extends CI_Driver_Library {
 	 */
 	public function get($id)
 	{
+		$id = APP_NAME . ENVIRONMENT . $id;
+		
 		return $this->{$this->_adapter}->get($this->key_prefix.$id);
 	}
 
@@ -152,6 +154,8 @@ class CI_Cache extends CI_Driver_Library {
 	 */
 	public function save($id, $data, $ttl = 60, $raw = FALSE)
 	{
+		$id = APP_NAME . ENVIRONMENT . $id;
+		
 		return $this->{$this->_adapter}->save($this->key_prefix.$id, $data, $ttl, $raw);
 	}
 
@@ -165,6 +169,8 @@ class CI_Cache extends CI_Driver_Library {
 	 */
 	public function delete($id)
 	{
+		$id = APP_NAME . ENVIRONMENT . $id;
+		
 		return $this->{$this->_adapter}->delete($this->key_prefix.$id);
 	}
 
@@ -231,6 +237,8 @@ class CI_Cache extends CI_Driver_Library {
 	 */
 	public function get_metadata($id)
 	{
+		$id = APP_NAME . ENVIRONMENT . $id;
+		
 		return $this->{$this->_adapter}->get_metadata($this->key_prefix.$id);
 	}
 
