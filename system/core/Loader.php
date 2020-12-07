@@ -155,6 +155,13 @@ class CI_Loader {
 	public function initialize()
 	{
 		$this->_ci_autoloader();
+		
+		$this->_ci_classes = array();
+		$this->_ci_loaded_files = array();
+		$this->_ci_models = array();
+		$this->_base_classes =& is_loaded();
+		
+		return $this;
 	}
 
 	// --------------------------------------------------------------------
@@ -748,6 +755,11 @@ class CI_Loader {
 		{
 			// We aren't instantiating an object here, just making the base class available
 			require BASEPATH.'libraries/Driver.php';
+		}
+		
+		if ($library == '')
+		{
+			return FALSE;
 		}
 
 		// We can save the loader some time since Drivers will *always* be in a subfolder,

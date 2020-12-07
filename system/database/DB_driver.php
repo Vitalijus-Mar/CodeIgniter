@@ -1700,6 +1700,8 @@ abstract class CI_DB_driver {
 		{
 			$message = is_array($error) ? $error : array(str_replace('%s', $swap, $LANG->line($error)));
 		}
+		
+		throw new Exception(implode(' ', $message), 666);
 
 		// Find the most likely culprit of the error by going through
 		// the backtrace until the source file is no longer in the
